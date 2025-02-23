@@ -9,13 +9,7 @@ pipeline {
     }
     
     stages {
-        stage('Setup Environment') {
-            steps {
-                script {
-                    env.SCANNER_HOME = tool 'Sonar-Scanner'  // Get scanner path
-                }
-            }
-        }
+        
         stage('Unit Testing') {
             steps {
                 bat 'mvn clean package'
