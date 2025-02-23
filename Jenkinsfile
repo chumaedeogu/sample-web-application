@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'maven'  // Ensure "maven" is installed in Jenkins tools
-        SonarQube Scanner 'Sonar-Scanner'  // Use correct SonarQube tool name
+        SonarQube 'Sonar-Scanner'  // Use correct SonarQube tool name
     }
     stages {
         stage('Setup Environment') {
