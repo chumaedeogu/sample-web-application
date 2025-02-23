@@ -22,7 +22,7 @@ pipeline{
                 script{
                     withSonarQubeEnv('sonar-scanner') {
                       bat '''
-                         %SCANNER_HOME%\\bin\\sonar-scanner -Dsonar.projectName=petclinic -Dsonar.projectKey=petclinic -Dsonar.java.binaries="C:\\Program Files\\Java\\
+                         %SCANNER_HOME%\\bin\\sonar-scanner -Dsonar.projectName=video -Dsonar.projectKey=video -Dsonar.java.binaries="C:\\Program Files\\Java\\
                         jdk-21\\bin\\java"
                             
                           '''  
