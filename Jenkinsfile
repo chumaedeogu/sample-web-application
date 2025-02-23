@@ -20,11 +20,8 @@ pipeline{
     stage('sonarQube Analysis'){
             steps{
                 script{
-                    
-                
                     withSonarQubeEnv('sonar-scanner') {
                       bat '''
-                       
                          %SCANNER_HOME%\\bin\\sonar-scanner -Dsonar.projectName=petclinic -Dsonar.projectKey=petclinic -Dsonar.java.binaries="C:\\Program Files\\Java\\
                         jdk-21\\bin\\java"
                             
@@ -33,6 +30,8 @@ pipeline{
             }
                 
 }
+}
+    }
 }
 
 
