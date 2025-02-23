@@ -13,16 +13,27 @@ pipeline{
         stage("unit testing"){
             steps{
                 bat 'mvn clean package'
-            }
+            
         }
-        stage("static analysis with sonarqube"){
-            steps{
-              withSonarQubeEnv() {
-           bat "${mvn}/bin/mvn clean verify sonar:sonar -Dsonar.projectKey=test"
-             }
-            }
-        }
+      
     }
+    stage('sonarQube Analysis'){
+            steps{
+                script{
+                    
+                
+                    withSonarQubeEnv('sonar-scanner') {
+                      bat '''
+                       
+                         %SCANNER_HOME%\\bin\\sonar-scanner -Dsonar.projectName=petclinic -Dsonar.projectKey=petclinic -Dsonar.java.binaries="C:\\Program Files\\Java\\
+                        jdk-21\\bin\\java"
+                            
+                          '''  
+                    }
+            }
+                
 }
+}
+
 
     
