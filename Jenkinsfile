@@ -37,7 +37,7 @@ pipeline {
         stage("build the docker image"){
             steps{
                 script{
-                withDockerRegistry('docker3') {
+                withDockerRegistry(credentialsId: 'docker4) {
                  bat ''' 
                  docker build -t chumaedeogu/connect .
                  docker push chumaedeogu/connect
