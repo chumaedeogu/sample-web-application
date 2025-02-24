@@ -29,5 +29,23 @@ pipeline {
                 }
             }
         }
+        stage("scan the fs"){
+            steps{
+                bat 'trivy fs --format table -o report.txt .'
+            }
+        }
+        stage("build the docker image"){
+            steps{
+                script{
+                withDockerRegistry(credentialsId: '5be329b7-458e-46f5-ba6b-b9c8bdd81712') {
+                 bat ''' 
+                 docker build -t chumaedeogu/connect .
+                 docker push chumaedeogu/connect
+                 
+                 '''
+              }
+            }
+        }
     }
+
 }
