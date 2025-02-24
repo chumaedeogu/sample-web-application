@@ -39,8 +39,8 @@ pipeline {
                 script{
                 withDockerRegistry(credentialsId: 'docker4') {
                  bat ''' 
-                 docker build -t chumaedeogu/connect:${BUILD_NUMBER} .
-                 docker push chumaedeogu/connect
+                 docker build -t chumaedeogu/connect:0.${BUILD_NUMBER} .
+                 docker push chumaedeogu/connect:0.${BUILD_NUMBER}
                  
                  '''
               }
